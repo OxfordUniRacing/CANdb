@@ -57,21 +57,4 @@ BO_ 0 Display_info: 2 VCU
 
 
 
-CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
-CM_ SG_ 3221225472 motor2_current "is it on CAN bus? check values";
-CM_ SG_ 3221225472 motor1_current "is it on CAN bus? check values";
-BA_DEF_  "BusType" STRING ;
-BA_DEF_ BU_  "NodeLayerModules" STRING ;
-BA_DEF_ BU_  "ECU" STRING ;
-BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
-BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
-BA_DEF_ BU_  "CANoeDrift" INT 0 0;
-BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
-BA_DEF_DEF_  "BusType" "";
-BA_DEF_DEF_  "NodeLayerModules" "";
-BA_DEF_DEF_  "ECU" "";
-BA_DEF_DEF_  "CANoeJitterMax" 0;
-BA_DEF_DEF_  "CANoeJitterMin" 0;
-BA_DEF_DEF_  "CANoeDrift" 0;
-BA_DEF_DEF_  "CANoeStartDelay" 0;
 

@@ -33,28 +33,177 @@ NS_ :
 
 BS_:
 
-BU_: BMS Out Dashboard PedalBoard IMU VCU
+BU_: Out Dashboard PedalBoard IMU VCU BMS Third_Party_Device
 
 
-BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
- SG_ motor2_current : 0|8@1- (1,0) [-128|127] "" Vector__XXX
- SG_ motor1_current : 0|8@1- (1,0) [-128|127] "" Vector__XXX
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 2 Vector__XXX
+ SG_ motor2_current : 0|8@1+ (1,0) [-128|127] "Amps" Vector__XXX
+ SG_ motor1_current : 0|8@1+ (1,0) [-128|127] "Amps" Vector__XXX
 
-BO_ 2 Dashboard_input: 1 Vector__XXX
- SG_ TCS_on : 7|1@1- (1,1) [0|1] "" Vector__XXX
- SG_ Ignition_on : 6|1@1- (1,1) [0|1] "" Vector__XXX
- SG_ Event : 3|3@1- (1,4) [0|7] "" Vector__XXX
- SG_ Driver_profile : 0|3@1- (1,4) [0|7] "" Vector__XXX
+BO_ 256 SBG_ECAN_LOG_STATUS_01: 8 IMU
+ SG_ TIME_STAMP : 0|32@1+ (1,0) [0|0] "us" Vector__XXX
+ SG_ GENERAL_STATUS : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CLOCK_STATUS : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 257 SBG_ECAN_LOG_STATUS_02: 8 IMU
+ SG_ COM_STATUS : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AIDING_STATUS : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 258 SBG_ECAN_LOG_STATUS_03: 8 IMU
+ SG_ SOLUTION_STATUS : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HEAVE_STATUS : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 288 SBG_ECAN_LOG_IMU_INFO: 8 IMU
+ SG_ TIME_STAMP : 0|32@1+ (1,0) [0|0] "us" Vector__XXX
+ SG_ IMU_STATUS : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TEMPERATURE : 48|16@1- (0.01,0) [-327.68|327.67] "C" Vector__XXX
+
+BO_ 289 SBG_ECAN_LOG_IMU_ACCEL: 6 IMU
+ SG_ ACCEL_X : 0|16@1- (0.01,0) [-327.68|327.67] "m.s^-2" Vector__XXX
+ SG_ ACCEL_Y : 16|16@1- (0.01,0) [-327.68|327.67] "m.s^-2" Vector__XXX
+ SG_ ACCEL_Z : 32|16@1- (0.01,0) [-327.68|327.67] "m.s^-2" Vector__XXX
+
+BO_ 290 SBG_ECAN_LOG_IMU_GYRO: 6 IMU
+ SG_ GYRO_X : 0|16@1- (0.001,0) [-32.768|32.767] "rad.s^-1" Vector__XXX
+ SG_ GYRO_Y : 16|16@1- (0.001,0) [-32.768|32.767] "rad.s^-1" Vector__XXX
+ SG_ GYRO_Z : 32|16@1- (0.001,0) [-32.768|32.767] "rad.s^-1" Vector__XXX
+
+BO_ 291 SBG_ECAN_LOG_IMU_DELTA_VEL: 6 IMU
+ SG_ DELTA_VEL_X : 0|16@1- (0.01,0) [-327.68|327.67] "m.s^-2" Vector__XXX
+ SG_ DELTA_VEL_Y : 16|16@1- (0.01,0) [-327.68|327.67] "m.s^-2" Vector__XXX
+ SG_ DELTA_VEL_Z : 32|16@1- (0.01,0) [-327.68|327.67] "m.s^-2" Vector__XXX
+
+BO_ 292 SBG_ECAN_LOG_IMU_DELTA_ANGLE: 6 IMU
+ SG_ DELTA_ANGLE_X : 0|16@1- (0.001,0) [-32.768|32.767] "rad.s^-1" Vector__XXX
+ SG_ DELTA_ANGLE_Y : 16|16@1- (0.001,0) [-32.768|32.767] "rad.s^-1" Vector__XXX
+ SG_ DELTA_ANGLE_Z : 32|16@1- (0.001,0) [-32.768|32.767] "rad.s^-1" Vector__XXX
+
+BO_ 2 Dashboard_input: 1 Dashboard
+ SG_ TCS_on : 7|1@1+ (1,1) [0|1] "" Vector__XXX
+ SG_ Ignition_on : 6|1@1+ (1,1) [0|1] "" Vector__XXX
+ SG_ Event : 3|3@1+ (1,4) [0|7] "" Vector__XXX
+ SG_ Driver_profile : 0|3@1+ (1,4) [0|7] "" Vector__XXX
 
 BO_ 1 Pedalboard_input: 8 PedalBoard
  SG_ throttle : 48|16@1+ (0.001526,0) [0|100.00641] "" Vector__XXX
- SG_ steering_wheel : 16|16@1- (0.001526,0) [-50.003968|50.002442] "" Vector__XXX
+ SG_ steering_wheel : 16|16@1+ (0.001526,0) [-50.003968|50.002442] "" Vector__XXX
  SG_ brake : 32|16@1+ (0.001526,0) [0|100.00641] "" Vector__XXX
  SG_ accelerator_implausibility : 0|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 0 Display_info: 2 VCU
- SG_ car_speed : 0|16@1- (0.0035,80) [-34.688|194.6845] "" Vector__XXX
+ SG_ car_speed : 0|16@1+ (0.0035,80) [-34.688|194.6845] "" Vector__XXX
+
+BO_ 1712 MSGID_0X6B0: 8 BMS
+ SG_ Pack_Current : 7|16@0+ (0.1,0) [0|0] "Amps"  Third_Party_Device
+ SG_ Pack_Inst_Voltage : 23|16@0+ (0.1,0) [0|0] "Volts"  Third_Party_Device
+ SG_ Pack_SOC : 39|8@0+ (0.5,0) [0|0] "Percent"  Third_Party_Device
+ SG_ Relay_State : 47|16@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ CRC_Checksum : 63|8@0+ (1,1720) [0|0] ""  Third_Party_Device
+
+BO_ 1713 MSGID_0X6B1: 8 BMS
+ SG_ Pack_DCL : 7|16@0+ (1,0) [0|0] "Amps"  Third_Party_Device
+ SG_ Pack_CCL : 23|8@0+ (1,0) [0|0] "Amps"  Third_Party_Device
+ SG_ Blank : 31|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ High_Temperature : 39|8@0+ (1,0) [0|0] "Celsius"  Third_Party_Device
+ SG_ Low_Temperature : 47|8@0+ (1,0) [0|0] "Celsius"  Third_Party_Device
+ SG_ High_Thermistor_ID : 55|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ CRC_Checksum : 63|8@0+ (1,1721) [0|0] ""  Third_Party_Device
+
+BO_ 1714 MSGID_0X6B2: 5 BMS
+ SG_ Failsafe_Statuses : 7|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ DTC_Flags_1 : 15|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ DTC_Flags_2 : 23|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Unknown : 31|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ CRC_Checksum : 39|8@0+ (1,0) [0|0] ""  Third_Party_Device
+
+BO_ 1715 MSGID_0X6B3: 6 BMS
+ SG_ Low_Cell_Voltage_ID : 7|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ High_Cell_Voltage : 15|8@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ Avg_Cell_Voltage : 23|8@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ High_Cell_Voltage_ID : 31|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ Low_Cell_Voltage_ID : 39|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ CRC_Checksum : 47|8@0+ (1,0) [0|0] ""  Third_Party_Device
+
+BO_ 1716 MSGID_0X6B4: 6 BMS
+ SG_ Low_Opencell_Voltage : 7|8@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ High_Opencell_Voltage : 15|8@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ Avg_Opencell_Voltage : 23|8@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ High_Opencell_ID : 31|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ Low_Opencell_ID : 39|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ CRC_Checksum : 47|8@0+ (1,0) [0|0] ""  Third_Party_Device
+
+BO_ 1717 MSGID_0X6B5: 6 BMS
+ SG_ Low_Cell_Resistance : 7|8@0+ (0.01,0) [0|0] "mOhm"  Third_Party_Device
+ SG_ High_Cell_Resistance : 15|8@0+ (0.01,0) [0|0] "mOhm"  Third_Party_Device
+ SG_ Avg_Cell_Resistance : 23|8@0+ (0.01,0) [0|0] "mOhm"  Third_Party_Device
+ SG_ High_Intres_ID : 31|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ Low_Opencell_ID : 39|8@0+ (1,0) [0|0] "ID"  Third_Party_Device
+ SG_ CRC_Checksum : 47|8@0+ (1,0) [0|0] ""  Third_Party_Device
+
+BO_ 1718 MSGID_0X6B6: 8 BMS
+ SG_ Adaptive_Amphours : 7|8@0+ (0.1,0) [0|0] "Amphours"  Third_Party_Device
+ SG_ Adaptive_Total_Capacity : 15|8@0+ (0.1,0) [0|0] "Amphours"  Third_Party_Device
+ SG_ Adaptive_SOC : 23|8@0+ (0.5,0) [0|0] "Percent"  Third_Party_Device
+ SG_ Blank : 31|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 39|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 47|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 55|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 63|8@0+ (1,0) [0|0] ""  Third_Party_Device
+
+BO_ 1719 MSGID_0X6B7: 8 BMS
+ SG_ Blank : 7|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 15|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 23|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 31|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 39|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 47|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 55|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ Blank : 63|8@0+ (1,0) [0|0] ""  Third_Party_Device
+
+BO_ 2565547072 MSGID_0X18EB2440: 8 Third_Party_Device
+ SG_ Blank : 7|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 15|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 23|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 31|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 39|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 47|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 55|8@0+ (1,0) [0|0] ""  BMS
+ SG_ Blank : 63|8@0+ (1,0) [0|0] ""  BMS
+
+BO_ 2565160996 MSGID_0X18E54024: 8 BMS
+ SG_ Charger_Safety_Inverted : 0|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Blank : 1|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Constant_1 : 2|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Constant_1 : 3|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Constant_1 : 4|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Constant_1 : 5|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Constant_1 : 6|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Constant_1 : 7|1@1+ (1,0) [0|1] ""  Third_Party_Device
+ SG_ Maximum_Pack_Voltage : 8|16@1+ (0.1,0) [0|0] "Volts"  Third_Party_Device
+ SG_ Pack_CCL : 24|16@1+ (6553.5,3200) [0|0] "Amps"  Third_Party_Device
+ SG_ Pack_SOC : 47|8@0+ (17.5,0) [0|5] "Percent"  Third_Party_Device
+ SG_ Constant_Value : 55|8@0+ (1,255) [0|0] ""  Third_Party_Device
+ SG_ Constant_Value : 63|8@0+ (1,255) [0|0] ""  Third_Party_Device
+
+BO_ 56 MSGID_0X38_CELLBCAST: 8 BMS
+ SG_ CellId : 7|8@0+ (1,0) [0|0] "#"  Third_Party_Device
+ SG_ CellVoltage : 15|16@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ CellResistance : 30|15@0+ (0.01,0) [0|0] "mOhms"  Third_Party_Device
+ SG_ CellOpenVoltage : 47|16@0+ (0.0001,0) [0|0] "Volts"  Third_Party_Device
+ SG_ Checksum : 63|8@0+ (1,0) [0|0] ""  Third_Party_Device
+ SG_ CellBalancing : 31|1@1+ (1,0) [0|0] ""  Third_Party_Device
 
 
 
+CM_ BO_ 1712 "This ID Transmits at 8 ms.";
+CM_ BO_ 1713 "This ID Transmits at 104 ms.";
+CM_ BO_ 1714 "This ID Transmits at 8 ms.";
+CM_ BO_ 1715 "This ID Transmits at 8 ms.";
+CM_ BO_ 1716 "This ID Transmits at 8 ms.";
+CM_ BO_ 1717 "This ID Transmits at 8 ms.";
+CM_ BO_ 1718 "This ID Transmits at 8 ms.";
+CM_ BO_ 1719 "This ID Transmits at 8 ms.";
+CM_ BO_ 2565160996 "This ID Transmits at 496 ms.";
+CM_ BO_ 56 "This ID Transmits at 100 ms.";
+CM_ SG_ 56 Checksum "Value = (0x38 + 8 + byte0 + byte1 + ... + byte6) & 0xFF";
 
